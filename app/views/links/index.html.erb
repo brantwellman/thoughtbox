@@ -18,6 +18,11 @@
 
 <% @links.each do |link| %>
   <%= link.title %> -
-  <%= link_to link.url, "#{link.url}" %>
+  <%= link_to link.url, "#{link.url}" %> -
+  <% if link.read %>
+    <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: :read %>
+  <% else %>
+    <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: :unread %>
+  <% end %>
   <br/>
 <% end %>

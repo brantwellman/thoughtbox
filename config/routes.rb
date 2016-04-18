@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "links#index"
 
   resources :users, only: [:new, :create]
-  resources :links, only: [:index, :create]
+  resources :links, only: [:index, :create, :update]
 
   get "/enter", to: "sessions#enter"
   get "/login", to: "sessions#new"
