@@ -18,7 +18,7 @@ class UnauthenticatedUserTest < ActionDispatch::IntegrationTest
     fill_in "Password confirmation", with: "password"
     click_on "Submit"
 
-    assert page.has_content?("All of the links!")
+    assert page.has_content?("All of the links belonging to")
   end
 
   test "user cant sign up with an email that is already used" do
