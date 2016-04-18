@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class LinkTest < ActiveSupport::TestCase
+  should validate_presence_of(:title)
+
   test "an invalid url is not saved" do
     Link.create(title: "Facebook", url: "https://www.facebook.com")
 
