@@ -1,15 +1,7 @@
-
 <h3>Submit your new link here!</h3>
 
-<%= form_for(@link) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= render partial: "/partials/link_form" %>
 
-  <%= f.label :url %>
-  <%= f.text_field :url %>
-
-  <%= f.submit "Submit" %>
-<% end %>
 <br/>
 <br/>
 <br/>

@@ -10,11 +10,10 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
     if @link.save
       current_user.links << @link
-      redirect_to root_path
     else
       flash[:errors] = @link.errors.full_messages.join(", ")
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def edit
