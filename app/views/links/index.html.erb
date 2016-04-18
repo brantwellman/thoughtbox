@@ -7,16 +7,32 @@
 <br/>
 <br/>
 
+<h4>Search the Links</h4>
+<div class="filter">
+  <form id="link_filter" action="index.html" method="post">
+    Search:
+    <input type="test" name="name" value="">
+  </form>
+</div>
+
+<br/>
+<br/>
+<br/>
+
 <h3>All of the links belonging to <%= current_user.email %>!</h3>
 
 <% @links.each do |link| %>
-  <%= link.title %> -
-  <%= link_to link.url, "#{link.url}" %> -
-  <% if link.read %>
-    <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: :read %>
-  <% else %>
-    <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: :unread %>
-  <% end %> -
-  <%= link_to "Edit", edit_link_path(link) %>
-  <br/>
+  <div class="link">
+    <div class="title">
+      <%= link.title %>
+    </div>
+    <%= link_to link.url, "#{link.url}", class: :url %> -
+    <% if link.read %>
+      <%= link_to "Mark as Unread", link_path(link, link: {read: false}), method: :patch, class: :read %>
+    <% else %>
+      <%= link_to "Mark as Read", link_path(link, link: {read: true}), method: :patch, class: :unread %>
+    <% end %> -
+    <%= link_to "Edit", edit_link_path(link) %>
+    <br/>
+  </div>
 <% end %>
