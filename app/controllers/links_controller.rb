@@ -7,13 +7,13 @@ class LinksController < ApplicationController
   end
 
   def create
-    link = Link.new(link_params)
-    if link.save
-      current_user.links << link
+    @link = Link.new(link_params)
+    if @link.save
+      current_user.links << @link
       redirect_to root_path
     else
-      flash.now[:errors] = @user.errors.full_messages.join(", ")
-      render :index
+      flash[:errors] = @link.errors.full_messages.join(", ")
+      redirect_to root_path
     end
   end
 

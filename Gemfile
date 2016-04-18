@@ -10,6 +10,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'pg'
 gem 'pry'
+gem 'validate_url'
 
 group :development, :test do
   gem 'byebug'
