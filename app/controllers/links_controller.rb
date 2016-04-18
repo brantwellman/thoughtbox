@@ -17,10 +17,19 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
   def update
     @link = Link.find(params[:id])
     @link.update_attributes(link_params)
-    redirect_to root_path
+    if @link.save
+      redirect_to root_path
+    else
+      flash[:errors] = @link.errors.full_messages.join(", ")
+      redirect_to edit_link_path
+    end
   end
 
   private
