@@ -10,6 +10,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'figaro'
 gem 'pg'
 gem 'pry'
+
 group :development, :test do
   gem 'byebug'
   gem 'capybara'
