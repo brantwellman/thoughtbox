@@ -1,6 +1,5 @@
-<h1>All of the links!</h1>
 
-<h2>Submit your new link here!</h2>
+<h1>Submit your new link here!</h1>
 
 <%= form_for(@link) do |f| %>
   <%= f.label :url %>
@@ -10,4 +9,15 @@
   <%= f.text_field :title %>
 
   <%= f.submit "Submit" %>
+<% end %>
+<br/>
+<br/>
+<br/>
+<br/>
+<h1>All of the links belonging to <%= current_user.email %>!</h1>
+
+<% @links.each do |link| %>
+  <%= link_to link.url, "#{link.url}" %> -
+  <%= link.title %>
+  <br/>
 <% end %>
